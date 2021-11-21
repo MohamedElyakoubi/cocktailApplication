@@ -73,5 +73,21 @@ export class CocktailService {
     const cocktails = this.cocktails$.value;
     return cocktails[index];
   }
+  public addCocktail(cocktail: Cocktail): void {
+    const value = this.cocktails$.value;
+    this.cocktails$.next([...value, cocktail]);
+  }
+  public editCocktail(editedCocktail: Cocktail): void {
+    const value = this.cocktails$.value;
+    this.cocktails$.next(
+      value.map((cocktail: Cocktail) => {
+        if (cocktail.name === editedCocktail.name) {
+          return editedCocktail;
+        } else {
+          return cocktail;
+        }
+      })
+    );
+  }
   constructor() {}
 }
