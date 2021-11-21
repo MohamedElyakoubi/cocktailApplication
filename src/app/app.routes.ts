@@ -15,7 +15,7 @@ export const APP_ROUTES: Routes = [
     component: CocktailContainerComponent,
     children: [
       { path: 'new', component: CocktailFormComponent },
-      { path: 'index/edit', component: CocktailDetailsComponent },
+      { path: ':index/edit', component: CocktailFormComponent },
       { path: ':index', component: CocktailDetailsComponent },
       { path: '', redirectTo: '0', pathMatch: 'full' },
     ],
