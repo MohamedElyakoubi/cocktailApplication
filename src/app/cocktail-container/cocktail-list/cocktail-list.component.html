@@ -1,9 +1,15 @@
 <h3 class="mb20">Listes des Cocktails</h3>
-<ul class="mb20 list-primary">
+<input
+  type="text"
+  class="mb20 w100"
+  [(ngModel)]="search"
+  placeholder="Rechercher un cocktail"
+/>
+<ul *ngIf="cocktails" class="mb20 list-primary">
   <li
     [routerLink]="[index]"
     routerLinkActive="active"
-    *ngFor="let cocktail of cocktails; let index = index"
+    *ngFor="let cocktail of cocktails | filter: search; let index = index"
   >
     {{ cocktail.name }}
   </li>
